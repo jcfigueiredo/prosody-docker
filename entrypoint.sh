@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
 
+if [ "$LOCAL" -a  "$PASSWORD" -a "$DOMAIN" ] ; then
+    # sets admin
+    cd /usr/lib/prosody/custom-modules/admin_web/ && sh get_deps.sh
+    # creates default user
+    prosodyctl register $LOCAL $DOMAIN $PASSWORD
+fi
+
 if [[ "$1" == "/bin/bash" ]]; then
     exec /bin/bash
     exit 0;
@@ -11,11 +18,5 @@ if [[ "$1" != "prosody" ]]; then
     exit 0;
 fi
 
-if [ "$LOCAL" -a  "$PASSWORD" -a "$DOMAIN" ] ; then
-    # sets admin
-    sh /usr/lib/prosody/custom-modules/admin_web/get_deps.sh
-    # creates default user
-    prosodyctl register $LOCAL $DOMAIN $PASSWORD
-fi
 
 exec "$@"

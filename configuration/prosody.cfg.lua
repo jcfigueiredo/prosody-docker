@@ -40,9 +40,15 @@ daemonize = false
 -- pidfile = "/var/run/prosody/prosody.pid"
 
 
+-- log = {
+--        debug = "/var/log/prosody/prosody.log";
+--        error = "/var/log/prosody/prosody.err";
+-- }
 log = {
-        debug = "/var/log/prosody/prosody.log";
-        error = "/var/log/prosody/prosody.err";
+    {
+        levels = {min = "info"}, 
+        to = "console"
+    }
 }
 
 allow_registration = true;
