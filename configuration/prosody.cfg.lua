@@ -3,11 +3,14 @@ admins = {
    "manager@localhost";
 }
 
+
+plugin_paths = { "/usr/lib/prosody/custom-modules/"}
+
+
 modules_enabled = {
    "admin_adhoc";
    "admin_web";
    "dialback";
-   "component";
    "disco";
    "http";
    "http_files";
@@ -33,8 +36,8 @@ modules_enabled = {
 
 };
 
-daemonize = true
-pidfile = "/var/run/prosody/prosody.pid"
+daemonize = false
+-- pidfile = "/var/run/prosody/prosody.pid"
 
 
 log = {
@@ -60,13 +63,13 @@ bosh_ports = {
 }
 
 ssl = {
-   key = "/etc/prosody/certs/key.pem";
-   certificate = "/etc/prosody/certs/cert.pem";
+   key = "/etc/certs/localhost.key";
+   certificate = "/etc/certs/localhost.crt";
 }
 
 https_ssl = {
-   key = "/etc/prosody/certs/key.pem";
-   certificate = "/etc/prosody/certs/cert.pem";
+   key = "/etc/certs/localhost.key";
+   certificate = "/etc/certs/localhost.crt";
 }
 
 -- Wake Up Component
