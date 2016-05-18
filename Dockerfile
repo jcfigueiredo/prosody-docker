@@ -30,7 +30,13 @@ RUN apt-get update \
       prosody \
   && rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /var/run/prosody/
+
 COPY ./entrypoint.sh /entrypoint.sh
+COPY certs/* /etc/certs/
+COPY modules/* /usr/lib/prosody/custom-modules/
+COPY configuration/prosody.cfg.lua /etc/prosody/
+
 RUN chmod 755 /entrypoint.sh
 
 EXPOSE 80 443 5222 5269 5347 5280 5281

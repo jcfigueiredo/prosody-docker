@@ -36,10 +36,6 @@ modules_enabled = {
 
 };
 
-daemonize = false
--- pidfile = "/var/run/prosody/prosody.pid"
-
-
 -- log = {
 --        debug = "/var/log/prosody/prosody.log";
 --        error = "/var/log/prosody/prosody.err";
@@ -58,8 +54,11 @@ bosh_max_inactivity = 30; -- 30 seconds
 bosh_max_requests = 20;
 consider_bosh_secure = true;
 cross_domain_bosh = true;
-pidfile = "/var/run/prosody/prosody.pid";
-use_libevent = true
+
+daemonize = false;
+pidfile = "/tmp/prosody.pid";
+
+use_libevent = true;
 
 bosh_ports = {
    {
