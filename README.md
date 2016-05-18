@@ -48,7 +48,32 @@ Volumes can be mounted at the following locations for adding in files:
 
 ### Example
 
+#### first time running (creating the container, creates the user)
 ```
+docker run --name prosody -d \
+  -p 5222:5222 \
+  -p 5281:5281 \
+  -p 0.0.0.0:5347:5347 \
+  -e LOCAL=manager \
+  -e DOMAIN=localhost \
+  -e PASSWORD=poker 
+  jcfigueiredo/prosody
+
+```
+
+#### running without creating the user
+```
+docker run --name prosody -d \
+  -p 5222:5222 \
+  -p 5281:5281 \
+  -p 0.0.0.0:5347:5347 \
+  jcfigueiredo/prosody
+
+```
+
+#### running with local mapping 
+```
+
 docker run --name prosody -d \
     -p 5222:5222 \
     -p 5280:5280 \
@@ -65,6 +90,11 @@ docker run --name prosody -d \
     jcfigueiredo/prosody
 
 ```
+
+## accesing the web admin
+
+* go to https://localhost:5281/admin/
+* log in using the LOCAL@DOMAIN + PASSWORD 
 
 ## Building
 
