@@ -80,11 +80,12 @@ https_ssl = {
 -- Wake Up Component
 component_interface = "0.0.0.0"
 
-Component "wakeup.localhost"
+Component "sleep.localhost"
     component_secret = "xicabom"
 
 
 VirtualHost "localhost"
+
 -- Assign this host a certificate for TLS, otherwise it would use the one
 -- set in the global section (if any).
 -- Note that old-style SSL on port 5223 only supports one certificate, and will always
