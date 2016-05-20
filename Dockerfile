@@ -36,6 +36,8 @@ COPY ./entrypoint.sh /entrypoint.sh
 COPY certs/* /etc/certs/
 COPY modules/* /usr/lib/prosody/custom-modules/
 COPY configuration/prosody.cfg.lua /etc/prosody/
+COPY overrides/mod_component.lua /usr/lib/prosody/modules/
+RUN chown root:root /usr/lib/prosody/modules/mod_component.lua
 
 RUN chmod 755 /entrypoint.sh
 

@@ -33,7 +33,6 @@ modules_enabled = {
    "time";
    "uptime";
    "version";
-
 };
 
 -- log = {
